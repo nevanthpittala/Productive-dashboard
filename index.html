@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Productivity Dashboard</title>
+<link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="dashboard">
+
+  <!-- Header -->
+  <header class="card header">
+    <div class="header-left">
+      <div class="logo-icon" aria-hidden="true">
+        <span></span><span></span><span></span><span></span>
+      </div>
+      <div>
+        <h1>Productivity Dashboard</h1>
+        <p class="subtitle">Focus &middot; Plan &middot; Achieve</p>
+      </div>
+    </div>
+
+    <div class="dark-mode-toggle">
+      <span class="moon" aria-hidden="true">🌙</span>
+      <span>Dark Mode</span>
+      <label class="switch">
+        <input type="checkbox" id="darkModeToggle">
+        <span class="slider"></span>
+      </label>
+    </div>
+  </header>
+
+  <!-- Top Row: Date/Time + Weather -->
+  <section class="row top-row" aria-label="Date, time and weather">
+
+    <article class="card date-card">
+      <div class="card-icon icon-purple">
+        <img src="assets/icons/clock-icon.png" alt="">
+      </div>
+      <div class="card-content">
+        <h2 class="title-purple">Date &amp; Time</h2>
+        <p class="day-name">Thursday</p>
+        <p class="date-value">08 July 2026</p>
+        <time class="time-value" datetime="2026-07-08T10:45:21">
+          10:45:21 <span class="ampm">AM</span>
+        </time>
+      </div>
+      <div class="analog-clock" aria-hidden="true">
+        <div class="clock-face">
+          <div class="tick tick-1"></div>
+          <div class="tick tick-2"></div>
+          <div class="tick tick-3"></div>
+          <div class="tick tick-4"></div>
+          <div class="tick tick-5"></div>
+          <div class="tick tick-6"></div>
+          <div class="tick tick-7"></div>
+          <div class="tick tick-8"></div>
+          <div class="tick tick-9"></div>
+          <div class="tick tick-10"></div>
+          <div class="tick tick-11"></div>
+          <div class="tick tick-12"></div>
+          <div class="hand hour-hand"></div>
+          <div class="hand minute-hand"></div>
+          <div class="center-dot"></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card weather-card">
+      <div class="card-icon icon-blue">
+        <img src="assets/icons/weather-icon.png" alt="">
+      </div>
+      <div class="card-content">
+        <h2 class="title-blue">Weather</h2>
+        <p class="location">📍 Hyderabad, India</p>
+        <p class="weather-date">08 July 2026</p>
+      </div>
+      <div class="weather-temp">
+        <p class="temp-row">
+          <span class="temp-value">31°C</span>
+          <span class="sun-emoji" aria-hidden="true">☀️</span>
+        </p>
+        <p class="condition">Sunny</p>
+      </div>
+      <ul class="weather-stats">
+        <li class="stat-box">
+          <span class="stat-icon" aria-hidden="true">💧</span>
+          <span class="stat-text">
+            <span class="stat-label">Humidity</span>
+            <span class="stat-value">52%</span>
+          </span>
+        </li>
+        <li class="stat-box">
+          <span class="stat-icon" aria-hidden="true">🌬️</span>
+          <span class="stat-text">
+            <span class="stat-label">Wind</span>
+            <span class="stat-value">12 km/h</span>
+          </span>
+        </li>
+      </ul>
+    </article>
+
+  </section>
+
+  <!-- Middle Row: 3 feature cards -->
+  <section class="row feature-row" aria-label="Productivity tools">
+
+    <article class="card feature-card green" data-feature="todo">
+      <div class="feature-icon-circle green-circle">
+        <img src="assets/icons/todolist-icon.png" alt="">
+      </div>
+      <div class="feature-content">
+        <h3 class="green-title">Todo List</h3>
+        <p>Manage your tasks and get things done</p>
+        <button class="btn green-btn">View Tasks <span aria-hidden="true">›</span></button>
+      </div>
+    </article>
+
+    <article class="card feature-card blue" data-feature="planner">
+      <div class="feature-icon-circle blue-circle">
+        <img src="assets/icons/calendar-icon.png" alt="">
+      </div>
+      <div class="feature-content">
+        <h3 class="blue-title">Daily Planner</h3>
+        <p>Plan your day hour <br> by hour</p>
+        <button class="btn blue-btn">Plan Day <span aria-hidden="true">›</span></button>
+      </div>
+    </article>
+
+    <article class="card feature-card orange" data-feature="pomodoro">
+      <div class="feature-icon-circle orange-circle">
+        <img src="assets/icons/podomoro-icon.png" alt="">
+      </div>
+      <div class="feature-content">
+        <h3 class="orange-title">Pomodoro Timer</h3>
+        <p>Stay focused with Pomodoro technique</p>
+        <button class="btn orange-btn">Start Focus <span aria-hidden="true">›</span></button>
+      </div>
+    </article>
+
+  </section>
+
+  <!-- Bottom Row: 2 cards -->
+  <section class="row bottom-row" aria-label="Motivation and goals">
+
+    <article class="card feature-card purple" data-feature="quote">
+      <div class="feature-icon-circle purple-circle">
+        <img src="assets/icons/motivation-icon.png" alt="">
+      </div>
+      <div class="feature-content">
+        <h3 class="purple-title">Motivation Quote</h3>
+        <p>Get inspired with positive quotes</p>
+        <button class="btn purple-btn">New Quote <span aria-hidden="true">›</span></button>
+      </div>
+    </article>
+
+    <article class="card feature-card gold" data-feature="goals">
+      <div class="feature-icon-circle gold-circle">
+        <img src="assets/icons/dailygoals-icon.png" alt="">
+      </div>
+      <div class="feature-content">
+        <h3 class="gold-title">Daily Goals</h3>
+        <p>Set goals and track your progress</p>
+        <button class="btn gold-btn">Track Goals <span aria-hidden="true">›</span></button>
+      </div>
+    </article>
+
+  </section>
+
+</div>
+<!-- Feature View -->
+
+<section id="feature-view" class="hidden">
+
+    <button id="back-btn">
+        ← Back to Dashboard
+    </button>
+
+    <div id="feature-content">
+
+        <!-- Todo / Planner / Pomodoro etc. will load here -->
+
+    </div>
+
+</section>
+<script src="script.js"></script>
+
+</body>
+</html>

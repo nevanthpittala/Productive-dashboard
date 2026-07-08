@@ -1,0 +1,861 @@
+:root {
+  --purple: #5b3fd7;
+  --purple-light: rgba(124, 108, 240, 0.18);
+  --blue: #2f6fd6;
+  --blue-light: rgba(66, 153, 225, 0.18);
+  --green: #1e8a4c;
+  --green-light: rgba(46, 160, 90, 0.18);
+  --orange: #d9531e;
+  --orange-light: rgba(240, 100, 60, 0.18);
+  --gold: #c98a12;
+  --gold-light: rgba(240, 170, 40, 0.18);
+
+  --text-dark: #201a33;
+  --text-muted: #4a4460;
+
+  --radius-lg: 1.25rem;
+  --gap: 1.5rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  min-height: 100vh;
+  background: url('assets/images/light-bg.png') no-repeat center center fixed;
+  background-size: cover;
+  padding: clamp(1rem, 3vw, 2.5rem);
+}
+
+.dashboard {
+  max-width: 87.5rem;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(0.875rem);
+  -webkit-backdrop-filter: blur(0.875rem);
+  border-radius: var(--radius-lg);
+  border: 0.0625rem solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0.5rem 2rem rgba(31, 38, 135, 0.1);
+  padding: clamp(1.25rem, 2vw, 1.75rem) clamp(1.25rem, 2.5vw, 2rem);
+}
+
+/* ---------- Header ---------- */
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0.25rem;
+  flex-shrink: 0;
+}
+
+.logo-icon span {
+  background: var(--purple);
+  border-radius: 0.3rem;
+}
+
+.header h1 {
+  font-size: clamp(1.25rem, 1.5vw + 0.75rem, 1.625rem);
+  color: #2b2140;
+  line-height: 1.2;
+}
+
+.subtitle {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  margin-top: 0.125rem;
+}
+
+.dark-mode-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  background: #241b3d;
+  color: #fff;
+  padding: 0.625rem 1.25rem;
+  border-radius: 1.875rem;
+  font-size: 0.875rem;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 2.5rem;
+  height: 1.25rem;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 1.25rem;
+  transition: 0.3s;
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  height: 1rem;
+  width: 1rem;
+  left: 0.125rem;
+  top: 0.125rem;
+  background: white;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.switch input:checked + .slider::before {
+  transform: translateX(1.25rem);
+}
+
+.switch input:checked + .slider {
+  background: #7c6cf0;
+}
+
+/* ---------- Rows: fluid, no manual breakpoints needed ---------- */
+.row {
+  display: grid;
+  gap: var(--gap);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+}
+
+.top-row {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+}
+
+.bottom-row{
+
+    width:70%;
+
+    margin:0 auto;
+
+    grid-template-columns:repeat(2,1fr);
+
+    justify-content:center;
+
+}
+
+/* ---------- Date & Weather cards ---------- */
+.date-card,
+.weather-card {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.card-icon {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.card-icon img {
+  width: 1.75rem;
+  height: 1.75rem;
+  object-fit: contain;
+}
+
+.icon-purple { background: var(--purple-light); }
+.icon-blue { background: var(--blue-light); }
+
+.card-content {
+  flex: 1 1 10rem;
+}
+
+.title-purple {
+  color: var(--purple);
+  font-size: 1.125rem;
+  margin-bottom: 0.375rem;
+}
+
+.title-blue {
+  color: var(--blue);
+  font-size: 1.125rem;
+  margin-bottom: 0.375rem;
+}
+
+.day-name {
+  font-size: 0.9375rem;
+  color: #2b2140;
+  font-weight: 600;
+}
+
+.date-value {
+  font-size: 0.9375rem;
+  color: var(--text-muted);
+  margin-bottom: 0.375rem;
+}
+
+.time-value {
+  font-size: clamp(1.5rem, 1vw + 1.25rem, 2rem);
+  font-weight: 700;
+  color: var(--text-dark);
+  display: block;
+}
+
+.ampm {
+  font-size: 1rem;
+  color: #6a4cf0;
+  font-weight: 600;
+  margin-left: 0.25rem;
+}
+
+.location,
+.weather-date {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+/* Analog clock (static hands, set with your own JS later) */
+.analog-clock {
+  width: 7.5rem;
+  height: 7.5rem;
+  flex-shrink: 0;
+  margin-inline: auto;
+}
+
+.clock-face {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.6);
+  border: 0.125rem solid rgba(124, 108, 240, 0.3);
+  position: relative;
+}
+
+.tick {
+  position: absolute;
+  width: 0.125rem;
+  height: 0.625rem;
+  background: #7c6cf0;
+  left: 50%;
+  top: 0.25rem;
+  transform-origin: 0.0625rem 3.5rem;
+  margin-left: -0.0625rem;
+}
+
+.tick-1  { transform: rotate(30deg); }
+.tick-2  { transform: rotate(60deg); }
+.tick-3  { transform: rotate(90deg); }
+.tick-4  { transform: rotate(120deg); }
+.tick-5  { transform: rotate(150deg); }
+.tick-6  { transform: rotate(180deg); }
+.tick-7  { transform: rotate(210deg); }
+.tick-8  { transform: rotate(240deg); }
+.tick-9  { transform: rotate(270deg); }
+.tick-10 { transform: rotate(300deg); }
+.tick-11 { transform: rotate(330deg); }
+.tick-12 { transform: rotate(0deg); }
+
+.hand {
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  transform-origin: bottom;
+  background: var(--purple);
+  border-radius: 0.1875rem;
+}
+
+.hour-hand {
+  width: 0.25rem;
+  height: 1.875rem;
+  margin-left: -0.125rem;
+  transform: rotate(322deg);
+}
+
+.minute-hand {
+  width: 0.1875rem;
+  height: 2.625rem;
+  margin-left: -0.09375rem;
+  background: #7c6cf0;
+  transform: rotate(270deg);
+}
+
+.center-dot {
+  position: absolute;
+  width: 0.5rem;
+  height: 0.5rem;
+  background: var(--purple);
+  border-radius: 50%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Weather specific */
+.weather-temp {
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.temp-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: flex-end;
+}
+
+.temp-value {
+  font-size: clamp(1.5rem, 1vw + 1.25rem, 2rem);
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.sun-emoji {
+  font-size: 1.625rem;
+}
+
+.condition {
+  color: var(--text-muted);
+  font-size: 0.9375rem;
+}
+
+.weather-stats {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  flex-shrink: 0;
+}
+
+.stat-box {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  background: rgba(255, 255, 255, 0.5);
+  padding: 0.5rem 1rem;
+  border-radius: 0.75rem;
+}
+
+.stat-text {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.8125rem;
+}
+
+.stat-value {
+  font-weight: 700;
+  font-size: 0.9375rem;
+  color: var(--text-dark);
+}
+
+/* ---------- Feature cards ---------- */
+.feature-card {
+  display: flex;
+  gap: 1rem;
+  position: relative;
+}
+
+.feature-icon-circle {
+  width: 3.75rem;
+  height: 3.75rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.feature-icon-circle img {
+  width: 1.875rem;
+  height: 1.875rem;
+  object-fit: contain;
+}
+
+.green-circle { background: var(--green-light); }
+.blue-circle { background: var(--blue-light); }
+.orange-circle { background: var(--orange-light); }
+.purple-circle { background: var(--purple-light); }
+.gold-circle { background: var(--gold-light); }
+
+.feature-content h3 {
+  font-size: 1.1875rem;
+  margin-bottom: 0.375rem;
+}
+
+.feature-content p {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+.green-title { color: var(--green); }
+.blue-title { color: var(--blue); }
+.orange-title { color: var(--orange); }
+.purple-title { color: var(--purple); }
+.gold-title { color: var(--gold); }
+
+.btn {
+  border: none;
+  padding: 0.75rem 1.375rem;
+  border-radius: 0.75rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: fit-content;
+  transition: transform 0.15s ease, filter 0.15s ease;
+}
+
+.btn:hover,
+.btn:focus-visible {
+  transform: translateY(-0.125rem);
+  filter: brightness(1.05);
+}
+
+.green-btn { background: #219653; }
+.blue-btn { background: var(--blue); }
+.orange-btn { background: #e8623a; }
+.purple-btn { background: var(--purple); }
+.gold-btn { background: #e2a52c; }
+
+.green { background: rgba(219, 244, 227, 0.6); }
+.blue { background: rgba(219, 235, 250, 0.6); }
+.orange { background: rgba(253, 228, 217, 0.6); }
+.purple { background: rgba(230, 224, 250, 0.6); }
+.gold { background: rgba(252, 236, 205, 0.6); }
+
+/* ---------- Dark Mode: pure CSS via :has(), no JS ---------- */
+body:has(#darkModeToggle:checked) {
+  background-color: #14101f;
+}
+
+body:has(#darkModeToggle:checked) .card {
+  background: rgba(30, 24, 48, 0.6);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+body:has(#darkModeToggle:checked) .header h1,
+body:has(#darkModeToggle:checked) .day-name,
+body:has(#darkModeToggle:checked) .date-value,
+body:has(#darkModeToggle:checked) .time-value,
+body:has(#darkModeToggle:checked) .temp-value,
+body:has(#darkModeToggle:checked) .stat-value,
+body:has(#darkModeToggle:checked) .feature-content h3 {
+  color: #f2eefc;
+}
+
+body:has(#darkModeToggle:checked) .subtitle,
+body:has(#darkModeToggle:checked) .location,
+body:has(#darkModeToggle:checked) .weather-date,
+body:has(#darkModeToggle:checked) .condition,
+body:has(#darkModeToggle:checked) .feature-content p,
+body:has(#darkModeToggle:checked) .stat-text {
+  color: #b8b0cc;
+}
+
+body:has(#darkModeToggle:checked) .stat-box {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+body:has(#darkModeToggle:checked) .clock-face {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+body:has(#darkModeToggle:checked) .green,
+body:has(#darkModeToggle:checked) .blue,
+body:has(#darkModeToggle:checked) .orange,
+body:has(#darkModeToggle:checked) .purple,
+body:has(#darkModeToggle:checked) .gold {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* ---------- Small screens ---------- */
+@media (max-width: 30rem) {
+  .weather-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .weather-temp {
+    text-align: left;
+  }
+
+  .temp-row {
+    justify-content: flex-start;
+  }
+}
+
+.hidden{
+    display:none;
+}
+
+#feature-view{
+
+    min-height:100vh;
+
+    padding:2rem;
+
+}
+
+#back-btn{
+
+    padding:.8rem 1.5rem;
+
+    border:none;
+
+    border-radius:.75rem;
+
+    cursor:pointer;
+
+    margin-bottom:2rem;
+
+}
+
+/*==========================================================
+                        TODO LIST
+==========================================================*/
+
+.todo-container{
+
+    width:min(65rem,100%);
+
+    margin:2rem auto;
+
+    padding:2rem;
+
+    background:rgba(255,255,255,.18);
+
+    backdrop-filter:blur(20px);
+
+    -webkit-backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.25);
+
+    border-radius:1.5rem;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.15);
+
+}
+
+.todo-container h1{
+
+    text-align:center;
+
+    color:#4338CA;
+
+    font-size:2.2rem;
+
+    margin-bottom:2rem;
+
+}
+
+
+/*==========================================================
+                    INPUT SECTION
+==========================================================*/
+
+.todo-input{
+
+    display:flex;
+
+    gap:1rem;
+
+    margin-bottom:2rem;
+
+}
+
+#task-input{
+
+    flex:1;
+
+    padding:1rem 1.2rem;
+
+    font-size:1rem;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:1rem;
+
+    background:rgba(255,255,255,.6);
+
+}
+
+#task-input::placeholder{
+
+    color:#666;
+
+}
+
+#add-task-btn{
+
+    padding:0 2rem;
+
+    border:none;
+
+    border-radius:1rem;
+
+    background:#5B57F5;
+
+    color:white;
+
+    font-size:1rem;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+#add-task-btn:hover{
+
+    background:#4338CA;
+
+    transform:translateY(-2px);
+
+}
+
+
+/*==========================================================
+                    TASK LIST
+==========================================================*/
+
+#task-list{
+
+    list-style:none;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:1rem;
+
+}
+
+
+/*==========================================================
+                    TASK ITEM
+==========================================================*/
+
+#task-list li{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:1rem 1.3rem;
+
+    border-radius:1rem;
+
+    background:rgba(255,255,255,.35);
+
+    transition:.3s;
+
+}
+
+#task-list li:hover{
+
+    transform:translateY(-3px);
+
+    background:rgba(255,255,255,.5);
+
+}
+
+
+/*==========================================================
+                    TASK TEXT
+==========================================================*/
+
+.task-text{
+
+    font-size:1.05rem;
+
+    font-weight:500;
+
+    color:#222;
+
+}
+
+
+/*==========================================================
+                    ACTION BUTTONS
+==========================================================*/
+
+.task-actions{
+
+    display:flex;
+
+    gap:.8rem;
+
+}
+
+.task-actions button{
+
+    width:2.5rem;
+
+    height:2.5rem;
+
+    border:none;
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+    background:white;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    transition:.3s;
+
+    font-size:1.1rem;
+
+}
+
+.task-actions button:hover{
+
+    transform:scale(1.1);
+
+}
+
+
+/*==========================================================
+                BUTTON COLORS
+==========================================================*/
+
+.important-btn{
+
+    color:#EAB308;
+
+}
+
+.complete-btn{
+
+    color:#22C55E;
+
+}
+
+.delete-btn{
+
+    color:#EF4444;
+
+}
+
+.important-btn:hover{
+
+    background:#FEF3C7;
+
+}
+
+.complete-btn:hover{
+
+    background:#DCFCE7;
+
+}
+
+.delete-btn:hover{
+
+    background:#FEE2E2;
+
+}
+
+
+/*==========================================================
+                COMPLETED TASK
+==========================================================*/
+
+.completed{
+
+    opacity:.6;
+
+}
+
+.completed .task-text{
+
+    text-decoration:line-through;
+
+}
+
+
+/*==========================================================
+                RESPONSIVE
+==========================================================*/
+
+@media(max-width:768px){
+
+    .todo-input{
+
+        flex-direction:column;
+
+    }
+
+    #add-task-btn{
+
+        width:100%;
+
+        padding:1rem;
+
+    }
+
+    #task-list li{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:1rem;
+
+    }
+
+    .task-actions{
+
+        width:100%;
+
+        justify-content:flex-end;
+
+    }
+
+}
