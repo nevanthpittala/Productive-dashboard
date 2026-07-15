@@ -8,6 +8,9 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div id="background-icon" class="background-icon">
+    <i class="ri-sun-line"></i>
+</div>
 
 <div class="dashboard">
 
@@ -75,29 +78,29 @@
       </div>
       <div class="card-content">
         <h2 class="title-blue">Weather</h2>
-        <p class="location">📍 Hyderabad, India</p>
-        <p class="weather-date">08 July 2026</p>
+        <p id="weather-location" class="location">📍 Loading...</p>
+        <p id="weather-date" class="weather-date">  Loading... </p>
       </div>
       <div class="weather-temp">
         <p class="temp-row">
-          <span class="temp-value">31°C</span>
+          <span id="weather-temp" class="temp-value"> --</span>
           <span class="sun-emoji" aria-hidden="true">☀️</span>
         </p>
-        <p class="condition">Sunny</p>
+        <p id="weather-condition" class="condition"> Loading...</p>
       </div>
       <ul class="weather-stats">
         <li class="stat-box">
           <span class="stat-icon" aria-hidden="true">💧</span>
           <span class="stat-text">
             <span class="stat-label">Humidity</span>
-            <span class="stat-value">52%</span>
+            <span id="weather-humidity" class="stat-value"> --</span>
           </span>
         </li>
         <li class="stat-box">
           <span class="stat-icon" aria-hidden="true">🌬️</span>
           <span class="stat-text">
             <span class="stat-label">Wind</span>
-            <span class="stat-value">12 km/h</span>
+            <span id="weather-wind" class="stat-value"> --</span>
           </span>
         </li>
       </ul>
