@@ -6,7 +6,6 @@ A modern and responsive Productivity Dashboard built using **HTML, CSS, and Java
 
 ## 📸 Preview
 
-> Add screenshots of your project here after uploading them.
 
 ### 🌞 Light Theme
 ![Light Theme](assets/images/light-bg.png)
