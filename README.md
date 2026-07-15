@@ -9,10 +9,10 @@ A modern and responsive Productivity Dashboard built using **HTML, CSS, and Java
 > Add screenshots of your project here after uploading them.
 
 ### 🌞 Light Theme
-![Light Theme](assets/screenshots/light-theme.png)
+![Light Theme](assets/images/light-bg.png)
 
 ### 🌙 Dark Theme
-![Dark Theme](assets/screenshots/dark-theme.png)
+![Dark Theme](assets/images/dark-bg.png)
 
 ---
 
@@ -87,9 +87,8 @@ Productive-dashboard/
 
 ## 🚀 Live Demo
 
-👉 **Netlify:** *(Add your Netlify URL here after deployment)*
 
----
+👉 **[View Live Demo](https://productive-dashboard-peach.vercel.app/)**
 
 ## 📚 What I Learned
 
